@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@400;600;800&display=swap');
 
 :root {
-  --bg-primary: #1a0e2a; /* Dark deep background */
-  --bg-secondary: #2d1b2e; /* Slightly lighter for surfaces */
-  --bg-tertiary: #381c3f; /* Accent surface */
-  --bg-header: var(--bg-secondary); /* Header background */
-  --bg-footer: var(--bg-secondary); /* Footer background */
-  --accent: #ff6f91; /* Vibrant pink accent */
-  --accent-rgb: 255, 111, 145;
-  --accent-glow: rgba(255, 111, 145, 0.35);
-  --accent-lavender: #c9a8e0;
-  --text-primary: #f5f5f5; /* Light text */
-  --text-secondary: rgba(245, 245, 245, 0.7);
-  --text-muted: rgba(245, 245, 245, 0.45);
+  --bg-primary: #ffffff; /* Pure white background */
+  --bg-secondary: #fdf0f5; /* Light pink background */
+  --bg-tertiary: #f0e8f8; /* Light lavender background */
+  --bg-header: rgba(253, 240, 245, 0.9); /* Translucent light pink for header */
+  --bg-footer: #fdf0f5; /* Light pink for footer */
+  --accent: #e8739d; /* Deep pink accent */
+  --accent-rgb: 232, 115, 157;
+  --accent-glow: rgba(232, 115, 157, 0.25);
+  --accent-lavender: #c9a8e0; /* Medium lavender accent */
+  --text-primary: #1a0e2a; /* Dark navy/purple for main text */
+  --text-secondary: #4a3b4b; /* Medium dark text */
+  --text-muted: #8e7d91; /* Light/muted text */
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
