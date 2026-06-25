@@ -1,8 +1,8 @@
-import trainerImg1 from "../assets/images/trainer1.webp";
-import trainerImg2 from "../assets/images/trainer2.webp";
-import trainerImg3 from "../assets/images/trainer3.webp";
-import trainerImg4 from "../assets/images/trainer4.webp";
-import trainerImg5 from "../assets/images/trainer5.webp";
+import trainerImg1 from "../assets/images/trainer1.jpg";
+import trainerImg2 from "../assets/images/trainer2.jpg";
+import trainerImg3 from "../assets/images/trainer3.jpg";
+import trainerImg4 from "../assets/images/trainer4.jpg";
+import trainerImg5 from "../assets/images/trainer5.jpg";
 
 const Trainers = () => {
   const trainers = [

@@ -1,4 +1,4 @@
-import bgImage from "../assets/images/backgroungimage1.jpg";
+import bgImage from "../assets/images/aboutimg.jpg";
 
 const About = () => {
   return (

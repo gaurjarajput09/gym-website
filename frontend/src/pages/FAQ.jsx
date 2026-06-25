@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { API_URL } from "../config";
+import { motion, AnimatePresence } from "framer-motion";
 
 const faqData = [
   {
@@ -142,8 +143,30 @@ const FAQ = () => {
   };
 
   return (
-    <div className="page-container">
-      <section className="main-section">
+    <div className="page-container" style={{ position: "relative", overflow: "hidden", paddingBottom: "100px" }}>
+      {/* Decorative Background for FAQ */}
+      <div style={{
+        position: "absolute",
+        top: "-20%",
+        left: "-10%",
+        width: "600px",
+        height: "600px",
+        background: "radial-gradient(circle, rgba(226,125,96,0.1) 0%, transparent 70%)",
+        filter: "blur(60px)",
+        zIndex: -1
+      }}></div>
+      <div style={{
+        position: "absolute",
+        bottom: "10%",
+        right: "-10%",
+        width: "700px",
+        height: "700px",
+        background: "radial-gradient(circle, rgba(165,123,107,0.08) 0%, transparent 70%)",
+        filter: "blur(80px)",
+        zIndex: -1
+      }}></div>
+
+      <section className="main-section" style={{ position: "relative", zIndex: 1 }}>
         <div className="section-header">
           <span className="section-tag">Support</span>
           <h2 className="section-title">Frequently Asked Questions</h2>
@@ -170,28 +193,55 @@ const FAQ = () => {
         <div className="faq-accordion">
           {currentFAQ &&
             currentFAQ.questions.map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
                 className={`faq-item ${openIndex === idx ? "open" : ""}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
                 <button
                   className="faq-question"
                   onClick={() => toggleQuestion(idx)}
                 >
                   <span>{item.q}</span>
-                  <span className="faq-arrow">{openIndex === idx ? "−" : "+"}</span>
+                  <motion.span 
+                    className="faq-arrow"
+                    animate={{ rotate: openIndex === idx ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {openIndex === idx ? "−" : "+"}
+                  </motion.span>
                 </button>
-                <div className="faq-answer-wrapper">
-                  <div className="faq-answer">
-                    <p>{item.a}</p>
-                  </div>
-                </div>
-              </div>
+                <AnimatePresence>
+                  {openIndex === idx && (
+                    <motion.div 
+                      className="faq-answer-wrapper"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      <div className="faq-answer">
+                        <p>{item.a}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
         </div>
 
         {/* Custom Question Form */}
-        <div className="faq-custom-form-container" style={{ marginTop: "60px", maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
+        <motion.div 
+          className="faq-custom-form-container" 
+          style={{ marginTop: "60px", maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="glass-panel" style={{ padding: "40px", borderRadius: "20px" }}>
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", textTransform: "uppercase", marginBottom: "10px", textAlign: "center" }}>
               Didn't Find Your Answer?
@@ -294,7 +344,7 @@ const FAQ = () => {
               </button>
             </form>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

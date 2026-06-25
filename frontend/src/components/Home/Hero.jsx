@@ -1,23 +1,28 @@
 import { Link } from "react-router-dom";
+import bgImage from "../../assets/images/backgroundimage2.jpg";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <section className="hero-wrapper">
       <div className="hero-overlay"></div>
       
-      {/* Premium Gym background video with poster fallback */}
-      <video 
-        src="https://cdn.pixabay.com/video/2022/08/09/87298-746871290_640.mp4" 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop"
+      {/* Background Image */}
+      <motion.img 
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        src={bgImage} 
+        alt="Gym Background"
         className="hero-bg-media"
       />
 
       <div className="hero-content">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+        >
           <span className="hero-tag">New BEL Road, Bangalore</span>
           <h1 className="hero-title">
             BUILD YOUR<br />
@@ -35,7 +40,7 @@ const Hero = () => {
               Learn More
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
